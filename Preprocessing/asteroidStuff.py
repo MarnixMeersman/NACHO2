@@ -10,14 +10,10 @@ import stupid
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-from thermal_model import get_temperature
 from pathlib import Path
 location = str(Path(__file__).parent.absolute())
 
 
-all_path = location + "/all.csv"
-pha_path  = location + "/pha.csv"
-pha_100_path  = location + "/pha_100.csv"
 earth_path = location + "/earth.txt"
 
 # asteroids = []
@@ -75,6 +71,23 @@ list = r.json()
 n = 1395
 
 asteroids = []
+
+file = open(location.split('Preprocessing')[0] + 'Data/data_sentry_all.csv')
+csvreader = csv.reader(file)
+index = 0
+written_names = []
+with open(location.split('Preprocessing')[0] + 'Data/names_100.csv', 'w') as f:
+    writer = csv.writer(f)
+    for row in csvreader:
+        if index == 0: index+=1; continue
+        name = row[0]
+        if name in written_names: continue
+        if index < 100:
+
+            writer.writerow([name])
+            written_names.append(name)
+        index += 1
+file.close()
 
 # DOWNLOAD EPHEMERIDES FOR ALL SENTRY ASTEROIDS
 # SAVE EPHEMERIDES TO A CSV FOR EACH ASTEROID
