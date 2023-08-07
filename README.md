@@ -1,3 +1,3 @@
-# NACHO2
-
-I made a new NACHO repo because there were some issues in a few commits back with a too large file.I could fix it, but that would take too much time, thereforte, this new and cleaned up repo.
+# NACHO
+NACHO is a Near Earth Object clustering algoritm meant to aid observatories in space and on the ground to track clusters of NEO's with minimal time between pointing to different NEO's
+Clustering is done trough multiple clustering alhoritms like dor instance K-means.
